@@ -1,4 +1,4 @@
-var cartoons = ["Snoopy","Ed, Edd n Eddy","Bugs Bunny","Foghorn Leghorn", "Donald Duck"]
+var cartoons = ["Snoopy","Ed","Bugs Bunny","Foghorn Leghorn", "Donald Duck"]
 
 var userInput = $("#search-bar").val();
 
@@ -21,10 +21,12 @@ $("#buttons").ready(function(){
 //});
 
 //$("button").on("click", function(){
+
     $("body").on("click", "#search-button", function(){
-        var newChar = $("#search-bar").text().trim();
-        var newBtn = $("<button type=\"button\" char-data=" + newChar + " class=\"gif-button btn btn-outline-danger\">"+ newChar + "</button>")
+        var newChar = $("#search-bar").val().trim();
+        var newBtn = $("<button type=\"button\" char-data=" + newChar +" class=\"gif-button btn btn-outline-danger\">"+ newChar + "</button>")
         $("#buttons").append(newBtn);
+        console.log(newChar);
 
 
     });
