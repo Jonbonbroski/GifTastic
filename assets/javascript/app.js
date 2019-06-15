@@ -1,4 +1,4 @@
-var cartoons = ["Snoopy","Ed","Bugs Bunny","Foghorn Leghorn", "Donald Duck"]
+var cartoons = ["Snoopy","Ed","Cartman","Goku", "Sponge Bob"]
 
 var userInput = $("#search-bar").val();
 
@@ -50,14 +50,19 @@ $("#buttons").ready(function(){
             var data = response.data;
             for(i=0;i<data.length;i++){
             var gifDiv = $("<div>");
+            gifDiv.attr("class", "gif col-sm-4 gif-div");
             var gifImg = $("<img>");
+            var gifRating = $("<h3>Rating:"+ data[i].rating+"</h3>");
             gifImg.attr("src", data[i].images.fixed_height_still.url);
-            gifImg.attr("class", "gif");
+            //gifImg.attr("class", "gif col-sm-4");
             gifImg.attr("gif-state", "still");
+            gifImg.attr("class", "gif gif-img");
             gifImg.attr("gif-animate",data[i].images.fixed_height.url);
             gifImg.attr("gif-still", data[i].images.fixed_height_still.url);
-            $("#gifs").append(gifDiv);
             $(gifDiv).append(gifImg);
+            $(gifDiv).append(gifRating);
+            $("#gifs").prepend(gifDiv);
+            
             };
 
 
